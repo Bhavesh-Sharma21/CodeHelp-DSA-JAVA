@@ -1,7 +1,7 @@
 package Java_Collection_framework;
 import java.util.*;
 
-public class part_one {
+public class List_interfaces {
     public static void main(String[] args) {
         //Lists or Collections -> interface
 
@@ -89,6 +89,53 @@ public class part_one {
         //index of
         System.out.println(newList.indexOf(91));
 
+        //Linked List
+        LinkedList<Integer> linkedlist = new LinkedList<>();
+        linkedlist.add(45);
+        linkedlist.add(5);
+        linkedlist.add(78);
+        linkedlist.addFirst(65);//LinkedList as Queue & Deque
+        linkedlist.add(90);
+        linkedlist.addLast(97);//LinkedList as Queue & Deque
+        linkedlist.add(33);
+        linkedlist.add(5);
+        System.out.println(linkedlist);
+        System.out.println(linkedlist.contains(5));
+        System.out.println(linkedlist.indexOf(33));
+        System.out.println(linkedlist.lastIndexOf(5));
+        //LinkedList as Queue & Deque
+        System.out.println(linkedlist.getFirst());
+        System.out.println(linkedlist.getLast());
+        System.out.println(linkedlist.removeLast());
+        System.out.println(linkedlist.removeFirst());
+        System.out.println(linkedlist.peek());
+        System.out.println(linkedlist.poll());
+        System.out.println(linkedlist.offer(90));
+        System.out.println(linkedlist);
+
+        //Java Vector
+        Vector<Integer> vector = new Vector<>();
+        vector.add(89);
+        vector.add(42);
+        vector.add(21);
+        vector.add(88);
+        System.out.println(vector);
+//        vector.toString();
+//        System.out.println(vector);
+//        remaing all function as same as like all lists
+
+        //Java Stack
+        Stack<Integer> stack = new Stack<>();
+        stack.add(3);
+        stack.push(455);
+        stack.add(89);
+        stack.add(156);
+        System.out.println(stack);
+        System.out.println(stack.pop());
+        System.out.println(stack.peek());
+        System.out.println(stack.search(89));
+        System.out.println(stack.empty());
+        System.out.println(stack);
 
     }
 }
