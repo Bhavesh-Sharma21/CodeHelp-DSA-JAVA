@@ -52,5 +52,24 @@ public class Map_interfaces {
         for(Map.Entry<Integer, String> entry : map.entrySet()){
             System.out.println("key: " + entry.getKey() + ", Value: " + entry.getValue());
         }
+
+
+        //LinkedHashMap followed the implementation sequence. and follows all method like HashMap
+        System.out.println("LinkedHashMap Implementation:- ");
+        Map<String, String> linkHM = new LinkedHashMap<>();
+        linkHM.put("Z", "Zebra");
+        linkHM.put("A", "Apple");
+        linkHM.put("M", "Mango");
+
+        System.out.println("LinkedHashMap (Insertion Order): " + linkHM);
+
+        //TreeMap followed the sorted sequence . and follows all method like HashMap & LinkedHashMap.
+        System.out.println("TreeMap Implementation:- ");
+        Map<Integer, String> treemap = new TreeMap<>();
+        treemap.put(3, "Three");
+        treemap.put(1, "One");
+        treemap.put(2, "Two");
+
+        System.out.println("TreeMap (Sorted Order): " + treemap); //Ascending order(natural)
     }
 }
