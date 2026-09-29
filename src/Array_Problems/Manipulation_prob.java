@@ -1,6 +1,8 @@
 package Array_Problems;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class Manipulation_prob {
     public static void revArray(int[] arr){
@@ -75,6 +77,68 @@ public class Manipulation_prob {
 
     }
 
+    static int getMode(int[] drr){
+        HashMap<Integer,Integer> freq = new HashMap<>();
+        for(int num: drr){
+            freq.put(num,freq.getOrDefault(num,0)+1);
+        }
+
+//        for(int i: freq.keySet()){
+//            //i -> will represent key
+//            System.out.println(i + " -> " + freq.get(i));
+//        }
+        int maxFreq = -1;
+        int maxFreqWaliKey = -1;
+
+        for(int key : freq.keySet()){
+            int currentKey = key;
+            int currentKeyKiFrequency = freq.get(key);
+            if(currentKeyKiFrequency > maxFreq){
+                //mujhe naya max mil gya
+                maxFreq = currentKeyKiFrequency;
+                maxFreqWaliKey = currentKey;
+            }
+        }
+        // jab loop se bahar aaoge toh max freq wali key ready hogi
+        return maxFreqWaliKey;
+    }
+
+    static int[] getHighestandLowestFreqElement(int[] err){
+        HashMap<Integer,Integer> freq = new HashMap<>();
+        //Insert Data...
+        for(int num: err){
+            freq.put(num,freq.getOrDefault(num,0)+1);
+        }
+        //Hashmap is ready
+        int highestFreq = Integer.MIN_VALUE;
+        int highestNum = -1;
+
+         for(int key: freq.keySet()){
+             int currentkey = key;
+             int currentFreq = freq.get(key);
+             if(currentFreq > highestFreq){
+                 //update to highest
+                 highestFreq = currentFreq;
+                 highestNum = currentkey;
+             }
+         }
+
+         int lowestFreq = Integer.MAX_VALUE;
+         int lowestNum = -1;
+
+         for(int key: freq.keySet()){
+             int currentKey = key;
+             int currentFreq = freq.get(key);
+             if(currentFreq < lowestFreq){
+                 //update to lowest
+                 lowestFreq = currentFreq;
+                 lowestNum = currentKey;
+             }
+         }
+         int[] ans = {highestNum, lowestNum};
+         return ans;
+    }
+
 
 
     public static void main(String[] args){
@@ -101,5 +165,15 @@ public class Manipulation_prob {
         int[] crr = {1,2,3,4,5,6,7};
         System.out.println("extreme starts:-");
         printExtreme(crr);
+
+        int[] drr = {1,2,2,3,3,4,4,4,5,5,5,5,5};
+        int cns = getMode(drr);
+        System.out.println("The mode is : " + cns);
+
+        int[] err = {1,2,2,3,3,3,5,5,5,8,8,8,8};
+        int[] dns = getHighestandLowestFreqElement(err);
+        System.out.println("The highest Freq element is: " + dns[0]);
+        System.out.println("The lowest Freq element is: " + dns[1]);
+
     }
 }
