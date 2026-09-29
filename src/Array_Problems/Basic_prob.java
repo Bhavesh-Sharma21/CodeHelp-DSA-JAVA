@@ -1,6 +1,7 @@
 package Array_Problems;
-
-
+import java.lang.reflect.Array;
+import  java.util.*;
+import java.util.Arrays;
 public class Basic_prob {
     static double getAverage(int[] arr) {
         double sum = 0;
@@ -79,6 +80,37 @@ public class Basic_prob {
 
         return -1;
     }
+
+    //HomeWork......
+
+    public static int[] swapAlternate(int[] hrr){
+        int[] result = new int[hrr.length];
+        for(int i = 0; i < hrr.length; i+=2){
+            if (i+1 < hrr.length){
+                result[i] = hrr[i+1];
+                result[i+1] = hrr[i];
+            }
+            else {
+                result[i] = hrr[i]; //Odd length: last element has no pair, copy as is...
+            }
+        }
+        return result;
+    }
+
+    public static void printIntersection(int[] arr1, int[] arr2){
+        Set<Integer> set1 = new HashSet<>();
+        for (int num: arr1){
+            set1.add(num);
+        }
+
+        Set<Integer> intersection = new LinkedHashSet<>(); // preserve Intersection order, avoids duplicates..
+        for(int num: arr2){
+            if (set1.contains(num)){
+                intersection.add(num);
+            }
+        }
+        System.out.println("Intersection: " + intersection);
+    }
     public static void main(String[] args){
          int []arr = {23,63,89,66,83};
          System.out.println(getAverage(arr));
@@ -110,6 +142,17 @@ public class Basic_prob {
         int[] grr = {1,2,5,4,9};
         System.out.println(getUnsorteElement(grr));
 
+        //Homework...
+
+        int[] hrr = {2,4,6,2,6,8,5};
+        int[] ens = swapAlternate(hrr);
+        System.out.println("Original Array: " + Arrays.toString(hrr) );
+        System.out.println("Swap Array: " + Arrays.toString(ens));
+
+        int[] arr1 = {1,2,3,4,5,6};
+        int[] arr2 = {4,5,6,7,8,9};
+
+        printIntersection(arr1, arr2);
 
     }
 }
