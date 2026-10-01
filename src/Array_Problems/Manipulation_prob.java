@@ -1,8 +1,6 @@
 package Array_Problems;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class Manipulation_prob {
     public static void revArray(int[] arr){
@@ -138,6 +136,38 @@ public class Manipulation_prob {
          int[] ans = {highestNum, lowestNum};
          return ans;
     }
+//Homework....
+    public static void shiftByK(int[] frr, int k){
+        int n = frr.length;
+        k = k%n;
+        if(k == 0) return;
+
+        int[] temp = new int[k];
+        for(int i = 0; i < k; i++){
+            temp[i] = frr[n - k + i]; //last k element save
+        }
+        for(int i = n-1; i >= k; i--){
+            frr[i] = frr[i-k];     // remaining all move k step forword
+        }
+        for(int i = 0; i < k; i++){
+            frr[i] = temp[i];   //add temp in starting
+        }
+    }
+
+    public static void printUnion(int[] arr1, int[] arr2){
+        Set<Integer> set1 = new HashSet<>();
+        for(int num: arr1){
+            set1.add(num);
+        }
+        Set<Integer> union = new LinkedHashSet<>();//Preserves union order , avoids duplicates...
+        for(int num: arr2){
+            if(set1.contains(num)){
+                union.add(num);
+            }
+        }
+        System.out.println("Union : " + union);
+    }
+
 
 
 
@@ -174,6 +204,16 @@ public class Manipulation_prob {
         int[] dns = getHighestandLowestFreqElement(err);
         System.out.println("The highest Freq element is: " + dns[0]);
         System.out.println("The lowest Freq element is: " + dns[1]);
+
+//Homework....
+        int [] frr = {3,5,8,9,1,6};
+        int k = 6;
+        shiftByK(frr,k);
+        System.out.println(Arrays.toString(frr));
+
+        int[] arr1 = {1,2,3,4,5,6};
+        int[] arr2 = {4,5,6,7,8,9};
+        printUnion(arr1,arr2);
 
     }
 }
